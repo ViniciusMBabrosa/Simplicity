@@ -1,0 +1,511 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Raleway:wght@400;700;800&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+/* Declarando o font-size para o elemento raíz (html). 
+    IMPORTANTE! Está configuraçãopermitirá o uso da médida REM em vários lugares no css
+
+*/
+html {
+    font-size: 14px;
+}
+
+body {
+    background-color: white;
+    font-family: 'Noto Sans';
+    
+    /* Solução de falta de espaço no conteúdo footer */
+
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Solução do rodapé (parte2) 
+Usamos o flex: 1 para garantir que a main ocupará todo espaço do body (que, já segue o tamanho da viewport)*/
+main{
+
+    flex: 1;
+}
+
+body,
+h1,
+h2,
+p,
+figure,
+.menu {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 1.5rem;
+
+
+}
+
+h1 a {
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    /* rem é usado para escrever menos css no responsivo em media screen and
+    rem vale 16px cada únidade, se subir o valor da raiz do html aumenta o valor do rem
+     */
+    padding: 0.3rem 1rem;
+
+}
+
+a {
+    text-decoration: none;
+
+}
+
+header {
+    /* display: flex;
+    justify-content: space-between;
+    align-items: center; */
+    /* fixar o menu em cima. */
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+
+    /* FORMA ANTIGA */
+    /* position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90px;
+    background-color: white;
+   */
+    /* O vw é usado para mudar a tela 
+    Entra como relação da altura ou largura  */
+    /* A diferença entre % e vw/vh é que a % é relacionada ao pai, já o vw é usado para tela */
+
+    /* VW -> viewport height (altura da viewport) usado está médida garantimos que a relação de tamnho é a tela (viewport). Neste caso, cerca de 12 unidades a altura da tela. */
+
+}
+
+header .limitador {
+    height: 12vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+
+nav h2 a {
+    color: black;
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: flex;
+}
+
+nav h2 a:hover,
+nav h2 a:focus,
+.menu a:hover,
+.menu a:focus {
+    background-color: rgb(69, 80, 76);
+}
+
+.menu {
+    /* Está propriedade será usada posterior mente para esconder a lista de links */
+    display: none;
+    list-style: none;
+}
+
+.menu a {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+/*
+    ATENÇÂO
+ Está regra baixo somente irá funcionar com o auxilio de programação JS. 
+ 
+ Objetivo: quando as duas classes estiverem combinadas ("menu" e "aberto"), o menu será exibido completamente.
+ */
+.menu.aberto {
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    position: absolute;
+    right: 0;
+    left: 0;
+}
+
+
+
+
+.destaque {
+    background-image: url(../Imagens/fundo-destaque.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    height: 88vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+
+}
+
+.destaque h2,
+.destaque p {
+    color: white;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+}
+
+.destaque h2 {
+
+    text-align: center;
+    font-size: 4rem;
+    /* clamp(
+        tamanho mínimo,
+        tamanho ideal,
+        tamanho máximo 
+        */
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    text-align: center;
+    /* Etapa, "chamar" e configurar a execução */
+    animation-name: aparecer;
+    animation-duration: 3s;
+
+    /* animation-iteration-count: infinite;
+    animation-direction:alternate; */
+}
+
+.destaque p {
+    font-size: clamp(1.5, 3vw, 3rem);
+    text-align: center;
+    animation-duration: 3s;
+    animation-delay: 2s;
+    animation-name: aparecer;
+
+    /* Usamos a propriedade valor a baixo, para força a animação, para íniciar após os dois segundos já com a opacidade zerada e, o tamanho menor e posição diferente. */
+    animation-fill-mode: backwards;
+
+
+}
+
+/* Etapa 1
+Criar uma regra de animação  */
+@keyframes aparecer {
+
+    /* Dê (como inicia) */
+    from {
+        opacity: 0;
+        transform: translateY(-600px);
+    }
+}
+
+/* parar quando termina */
+to {
+    opacity: 1;
+    transform: translateY();
+}
+
+/* tornando as imagens responsivas/flexíveis */
+img {
+    max-width: 100%;
+}
+
+article h2 {
+    padding: 1rem;
+    font-size: 2rem;
+    font-family: 'Relowey';
+    color: #6b6b6b;
+}
+
+article p,
+article address {
+    padding: 0.5rem 0;
+    font-size: 1.3rem;
+}
+
+/* Alinhamento dos articles SOMENTE que tenham as classes indicadas */
+.front-end,
+.hitoria,
+.localizacao {
+    text-align: center;
+}
+
+.historia {
+    background-image: url(../Imagens/fundo-madeira.jpg);
+    text-align: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.historia h2 {
+    color: white;
+    text-shadow: 1px 1px 2px;
+}
+
+.historia iframe {
+    width: 100%;
+    max-width: 700px;
+    margin-bottom: 2rem;
+
+}
+
+.localizacao iframe {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.front-end figure {
+    margin: 2rem auto;
+
+}
+
+.limitador {
+    width: 95vw;
+    margin: auto;
+}
+
+footer {
+    /* pode ser usado para fixar algo */
+
+    /* position:sticky;
+    bottom: 0; */
+    background-color: #0d0000;
+    color: white;
+    height: 30vh;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+
+/* Regras para página internas (Produtos, Serviços, Contato) */
+.conteudo {
+    background-color: #f5f5f5;
+    padding: 0.5rem;
+    border-radius: 30px;
+}
+
+.conteudo h2 {
+    padding-left: 0;
+    text-align: center;
+}
+
+/* Modo de selecionar uma tabela */
+table,
+th,
+td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+table {
+    width: 80%;
+    margin: auto;
+    margin-bottom: 0.5rem;
+}
+
+caption {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding-bottom: 0.5rem;
+}
+
+th {
+    background-color: #0d0000;
+    color: #fffffa;
+    padding: 0.7rem;
+    font-size: 1.1rem;
+}
+
+td {
+    padding: 2%;
+    font-size: 1.1rem;
+
+}
+
+/* Pseudo-classe de seleção */
+
+td:last-child {
+    text-align: right;
+}
+
+td:first-child {
+    text-transform: uppercase;
+}
+
+/* NTH-child(valor) -> enésimo td */
+td:nth-child(2) {
+    text-align: center;
+}
+
+/* para colocar qualquer coisa na tabela */
+td:last-child::before {
+    content: "R$";
+}
+
+.conteudo h2::before {
+    content: "🙈"
+}
+
+/* odd (ímpar) */
+tr:nth-child(odd) {
+    background-color: rgb(197, 197, 92);
+}
+
+/* odd (par) */
+tr:nth-child(even) {
+    background-color: rgb(63, 131, 219);
+}
+
+
+/* Serviços */
+#servicos h2 {
+    text-align: center;
+}
+
+.Fotos img {
+    border-radius: 100px;
+    margin: 0.5rem;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.411);
+    width: 200px;
+
+    /* trocar a cor da imagem */
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: gray;
+    transform: scale(1.10);
+
+    /* Tamanho da imagem */
+    transform: scale(0.9);
+
+}
+
+.Fotos {
+    text-align: center;
+}
+
+.Fotos img:hover {
+    filter: none;
+    transform: scale(1.10);
+    transition: scale(1);
+    filter: grayscale(0);
+}
+
+
+form {
+    width: 95%;
+    margin: auto;
+    background-color: #6b6b6b7a;
+    border-radius: 8px;
+    padding: 1rem;
+
+}
+
+input:not([type=radio]):not([type=checkbox]),
+select,
+textarea {
+    border: none;
+    padding: 1%;
+    width: 100%;
+    box-shadow: darkgray 0 0 5px;
+    height: 40px;
+}
+
+textarea {
+    height: auto;
+}
+
+label {
+    font-size: 1.3rem;
+}
+
+form div {
+    margin-top: 1rem
+}
+
+button {
+    border: none;
+    background-color: black;
+    color: white;
+    padding: 1rem;
+    font-weight: bold;
+
+}
+
+/* focus é usado para pessoas que usam o teclado como atalho. */
+button:hover,
+button:focus {
+    background-color: grey;
+    /* Usada para mudar o cursor */
+    cursor: pointer;
+}
+
+/* Crie as seguintes regras condicionais (media queries) */
+
+/* Para telas a partir de 530px, faça: 
+
+-esconder a palavra "menu"
+- habilitar o flex para a classe menu (lista)
+- definir largura de 100% para os itens dentro da lista menu
+- definir largura de 70% para o elemento nav
+- reduzir a altura das imagens contidas no front-end para 150px*/
+
+/* Para telas com pelos menos 800px de largura, faça:
+
+-aumenta o tamanho geral dos textos (a referência agora deverá ser de 18px
+
+- Definir a largura máxima da classe limitador para 1100px*/
+
+@media screen and (min-width: 530px) {
+    nav h2 {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+    }
+
+    .menu li {
+        width: 100%;
+    }
+
+    nav {
+        width: 70%;
+    }
+
+    .front-end figure img {
+        height: 150px;
+    }
+
+
+}
+
+@media screen and (min-width: 800px) {
+    html {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+   
+    .limitardor {
+        width: 1100px;
+    }
+
+}
