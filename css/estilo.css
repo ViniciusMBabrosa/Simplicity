@@ -71,6 +71,9 @@ header {
     /* fixar o menu em cima. */
     position: sticky;
     top: 0;
+    /* Usada para diminuir ou aumentar a profundidade da imagem após usar position */
+    z-index:10;
+
     background-color: #ffffff;
 
     /* FORMA ANTIGA */
