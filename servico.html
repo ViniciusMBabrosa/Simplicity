@@ -9,6 +9,9 @@
     <meta name="keywords" content="Simplicity">
     <link rel="stylesheet" href="css/estilo.css">
     <title>Document</title>
+    <link href="lightbox/css/lightbox.min.css" rel="stylesheet" />
+    
+
 </head>
 
 <body>
@@ -44,13 +47,13 @@
                 dolores. Fugiat similique assumenda ea officiis eius quidem neque esse amet.</p>
 
             <figure class="Fotos">
-                <img src="Imagens/design-grafico-mini.jpg" alt="">
+                <a data-lightbox="galeria" data-title="Gráfico interativo" href="Imagens/design-grafico.jpg"><img src="Imagens/design-grafico-mini.jpg" alt=""></a>
 
-                <img src="Imagens/desenvolvimento-web-mini.jpg" alt="">
+                <a data-lightbox="galeria" data-title="Desenvolvedor"  href="Imagens/desenvolvimento-web.jpg"><img src="Imagens/desenvolvimento-web-mini.jpg" alt=""></a>
 
-                <img src="Imagens/consultoria-treinamento-mini.jpg" alt="">
+                <a data-lightbox="galeria" data-title="Consultoria e treinamentos"  href="Imagens/consultoria-treinamento.jpg"><img src="Imagens/consultoria-treinamento-mini.jpg" alt=""></a>
 
-                <img src="Imagens/marketing-digital-mini.jpg" alt="">
+                <a data-lightbox="galeria" data-title="Marketing é o futuro"  href="Imagens/marketing-digital.jpg"><img src="Imagens/marketing-digital-mini.jpg" alt=""></a>
             </figure>
         </article>
 
@@ -60,7 +63,14 @@
         <p>Simplicity é um site fictício desenvolvido educacionalmente<br>
             Senac Penha - 2023</p>
     </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+    <script src="lightbox/js/lightbox.min.js"></script>
+
     <script src="js/menu.js"></script>
+    <script src="js/galeria.js"></script>
+
 </body>
 
 </html>
