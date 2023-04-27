@@ -507,8 +507,8 @@ button:focus {
     }
 
    
-    .limitardor {
-        width: 1100px;
+    .limitador {
+        max-width: 1100px;
     }
 
 }
